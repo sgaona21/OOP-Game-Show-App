@@ -11,13 +11,13 @@ class Phrase {
     addPhraseToDisplay() {
        let phraseToDisplay = '' 
        for (let i = 0; i < this.phrase.length; i++) {
-        if (this.phrase[i] == " ") {
-            let space = `<li class="space">${this.phrase[i]}</li>`
-            phraseToDisplay += space
-        } else {
-            let letter = `<li class="hide letter h"> ${this.phrase[i]} </li>`;
-            phraseToDisplay += letter
-        }
+            if (this.phrase[i] == ' ') {
+                let space = `<li class="space">${this.phrase[i]}</li>`
+                phraseToDisplay += space
+            } else {
+                let letter = `<li class="hide letter h"> ${this.phrase[i]} </li>`;
+                phraseToDisplay += letter
+            }
        }
        const ul = document.querySelector('#phrase ul')
        ul.innerHTML = phraseToDisplay
