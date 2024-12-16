@@ -18,9 +18,9 @@ class Phrase {
                 let letter = `<li class="hide letter h"> ${this.phrase[i]} </li>`;
                 phraseToDisplay += letter
             }
-       }
-       const ul = document.querySelector('#phrase ul')
-       ul.innerHTML = phraseToDisplay
+        }
+        const ul = document.querySelector('#phrase ul')
+        ul.innerHTML = phraseToDisplay
     }
 
     checkLetter() {
