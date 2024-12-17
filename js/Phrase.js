@@ -9,19 +9,25 @@ class Phrase {
     }
 
     addPhraseToDisplay() {
-        //Dynamically generates the HTML for the given phrase
-       let phraseToDisplay = '' 
-       for (let i = 0; i < this.phrase.length; i++) {
+        //Dynamically generates an element for each letter in the given phrase 
+        const ul = document.createElement("ul");
+        for (let i = 0; i < this.phrase.length; i++) {
             if (this.phrase[i] == ' ') {
-                let space = `<li class="space">${this.phrase[i]}</li>`
-                phraseToDisplay += space
+                let space = document.createElement("li")
+                space.classList.add('space')
+                space.innerHTML = this.phrase[i]
+                ul.appendChild(space)    
             } else {
-                let letter = `<li class="hide letter h"> ${this.phrase[i]} </li>`;
-                phraseToDisplay += letter
+                let letter = document.createElement("li")
+                letter.classList.add('hide')
+                letter.innerHTML = this.phrase[i]
+                ul.appendChild(letter)
             }
         }
-        const ul = document.querySelector('#phrase ul')
-        ul.innerHTML = phraseToDisplay
+        const oldUL = document.querySelector("#phrase ul");
+        const phraseElement = document.getElementById("phrase")
+        phraseElement.replaceChild(ul, oldUL)
+
     }
 
     checkLetter() {
@@ -35,7 +41,10 @@ class Phrase {
     }
 
     showMatchedLetter() {
-
+        const ul = document.querySelector('#phrase ul')
+        ul.forEach((item, index) => {
+            console.log(item);
+          });    
     }
 }
 
