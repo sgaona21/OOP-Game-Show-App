@@ -60,16 +60,5 @@ class Phrase {
 }
 
 
-const myNewPhrase = new Phrase("how are you")
-myNewPhrase.addPhraseToDisplay()
-
-const entireKeyboard = document.getElementById('qwerty')
-
-entireKeyboard.addEventListener('click', (event) => {
-    let guessIsCorrect = myNewPhrase.checkLetter()
-    if (guessIsCorrect == true) {
-        myNewPhrase.showMatchedLetter()
-    }
-})
 
 

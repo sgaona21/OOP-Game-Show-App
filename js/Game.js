@@ -11,11 +11,15 @@ class Game {
     }
 
     startGame() {
-        const overlayScreen = document.getElementById('overlay')
         overlayScreen.style.display = 'none'
+    }
+
+    getRandomPhrase() {
+        const randomPhrase = Math.floor(Math.random() * this.phrases.length)
+        return this.phrases[randomPhrase]
     }
 
 }
 
-const newgame = new Game()
-newgame.startGame()
+
+
