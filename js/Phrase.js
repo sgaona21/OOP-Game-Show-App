@@ -9,6 +9,7 @@ class Phrase {
     }
 
     addPhraseToDisplay() {
+        //Dynamically generates the HTML for the given phrase
        let phraseToDisplay = '' 
        for (let i = 0; i < this.phrase.length; i++) {
             if (this.phrase[i] == ' ') {
@@ -24,7 +25,13 @@ class Phrase {
     }
 
     checkLetter() {
-
+        //Checks to see if the players guessed letter is in the given phrase
+        let playerGuess = ''
+        if (playerGuess.includes(playerGuess)) {
+            return true
+        } else {
+            return false
+        }
     }
 
     showMatchedLetter() {
