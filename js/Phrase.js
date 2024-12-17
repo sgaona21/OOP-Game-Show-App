@@ -33,7 +33,7 @@ class Phrase {
     checkLetter() {
         //Checks to see if the players guessed letter is in the given phrase
         let playerGuess = ''
-        if (playerGuess.includes(playerGuess)) {
+        if (this.phrase.includes(playerGuess)) {
             return true
         } else {
             return false
@@ -41,9 +41,9 @@ class Phrase {
     }
 
     showMatchedLetter() {
-        const ul = document.querySelector('#phrase ul')
+        const ul = document.querySelectorAll('#phrase ul li')
         ul.forEach((item, index) => {
-            console.log(item);
+            console.log(item.innerHTML);
           });    
     }
 }
@@ -53,3 +53,4 @@ const myNewPhrase = new Phrase("how are you")
 
 
 console.log(myNewPhrase.addPhraseToDisplay())
+myNewPhrase.showMatchedLetter()
