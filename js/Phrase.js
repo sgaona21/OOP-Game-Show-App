@@ -20,6 +20,8 @@ class Phrase {
             } else {
                 let letter = document.createElement("li")
                 letter.classList.add('hide')
+                letter.classList.add('letter')
+                letter.classList.add(`${this.phrase[i]}`)
                 letter.innerHTML = this.phrase[i]
                 ul.appendChild(letter)
             }
@@ -31,9 +33,13 @@ class Phrase {
     }
 
     checkLetter() {
-        //Checks to see if the players guessed letter is in the given phrase
-        let playerGuess = ''
-        if (this.phrase.includes(playerGuess)) {
+        //Checks to see if the players guessed letter is in the given phrase and returns bool
+        let letterGuess = ''
+        if (event.target.classList == "key") {
+            letterGuess = event.target.textContent
+        }
+        
+        if (this.phrase.includes(letterGuess)) {
             return true
         } else {
             return false
@@ -41,16 +47,29 @@ class Phrase {
     }
 
     showMatchedLetter() {
-        const ul = document.querySelectorAll('#phrase ul li')
-        ul.forEach((item, index) => {
-            console.log(item.innerHTML);
-          });    
+        //reveals letter if players guess is included in phrase 
+        let guessedLetter = event.target.textContent
+        const entirePhrase = document.getElementsByClassName('letter')
+        for (let i = 0; i < entirePhrase.length; i++) {
+            if (entirePhrase[i].textContent == guessedLetter) {
+                entirePhrase[i].classList.remove('hide')
+                entirePhrase[i].classList.add('show')
+            }
+        }
     }
 }
 
 
 const myNewPhrase = new Phrase("how are you")
+myNewPhrase.addPhraseToDisplay()
+
+const entireKeyboard = document.getElementById('qwerty')
+
+entireKeyboard.addEventListener('click', (event) => {
+    let guessIsCorrect = myNewPhrase.checkLetter()
+    if (guessIsCorrect == true) {
+        myNewPhrase.showMatchedLetter()
+    }
+})
 
 
-console.log(myNewPhrase.addPhraseToDisplay())
-myNewPhrase.showMatchedLetter()
