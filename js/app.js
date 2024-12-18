@@ -7,35 +7,19 @@ const entireKeyboard = document.getElementById('qwerty')
 const overlayScreen = document.getElementById('overlay')
 const startGameButton = document.getElementById('btn__reset')
 
-const phrasesArray = ['how are you', 'way to go', 'coding is fun']
-
-
-
-
-
-const newgame = new Game()
-newgame.phrases = phrasesArray
-
-
-const myNewPhrase = new Phrase(newgame.getRandomPhrase())
-console.log(myNewPhrase.phrase)
-
-
-
-
-
-
-
+let newGame
+let newPhrase
 
 startGameButton.addEventListener('click', () => {
-    newgame.startGame()
-    myNewPhrase.addPhraseToDisplay()
+    newGame = new Game()
+    newGame.startGame()
 })
 
 entireKeyboard.addEventListener('click', (event) => {
-    let guessIsCorrect = myNewPhrase.checkLetter()
+    console.log(newPhrase.checkLetter())
+    let guessIsCorrect = newPhrase.checkLetter()
     if (guessIsCorrect == true) {
-        myNewPhrase.showMatchedLetter()
+        newPhrase.showMatchedLetter()
     }
 })
 
