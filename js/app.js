@@ -13,14 +13,17 @@ let newPhrase
 startGameButton.addEventListener('click', () => {
     newGame = new Game()
     newGame.startGame()
+
+    
 })
 
 entireKeyboard.addEventListener('click', (event) => {
-    console.log(newPhrase.checkLetter())
     let guessIsCorrect = newPhrase.checkLetter()
     if (guessIsCorrect == true) {
         newPhrase.showMatchedLetter()
     }
+
+    newGame.handleInteraction()
 })
 
 
