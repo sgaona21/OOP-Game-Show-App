@@ -44,6 +44,22 @@ class Game {
 
     removeLife() {
         console.log("remove life was called")
+        const hearts = document.querySelectorAll('#scoreboard ol li')
+        hearts[0].remove()
+
+        const heartsContainer = document.querySelector('#scoreboard ol')
+        let replacementHeart  = document.createElement('li')
+        replacementHeart.innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`
+        heartsContainer.appendChild(replacementHeart)
+        this.missed +=1
+
+        if (this.missed == 5) {
+            console.log("ITS OVER DAWG")
+            this.gameOver()
+        }
+
+        
+
     }
 
     checkForWin() {
@@ -58,12 +74,12 @@ class Game {
         }
         if (didPlayerwin === true) {
             console.log("PLAYER WON")
+            this.gameOver()
         }
-
     }
 
     gameOver() {
-
+        overlayScreen.style.display = 'flex'
     }
 
 }
