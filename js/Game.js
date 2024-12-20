@@ -126,9 +126,6 @@ class Game {
 					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
 					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
 					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
-					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>`
-                 
-        
-        
+					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>`  
     }
 }
