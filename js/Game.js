@@ -46,7 +46,6 @@ class Game {
                 event.target.classList.add('chosen')
                 newPhrase.showMatchedLetter()
                 this.checkForWin()
-
             }
         }
     }

@@ -25,6 +25,37 @@ entireKeyboard.addEventListener('click', (event) => {
     newGame.handleInteraction()
 })
 
+document.addEventListener("keydown", (event) => {
+    const pressedKey = event.key.toLowerCase();
+    const qwertyNodeList = entireKeyboard.querySelectorAll('button')
+    // Allows for keyboard interaction control
+    qwertyNodeList.forEach((button) => {
+        if (!button.disabled == true) {
+            if (button.textContent == pressedKey) {
+                button.disabled = true
+                if (!newGame.activePhrase.includes(pressedKey)) {
+                    button.classList.add('wrong')
+                    newGame.removeLife()
+                } else if (newGame.activePhrase.includes(pressedKey)) {
+                    button.classList.add('chosen')
+                    const entirePhrase = document.getElementsByClassName('letter')
+                    for (let i = 0; i < entirePhrase.length; i++) {
+                        if (entirePhrase[i].textContent == pressedKey) {
+                        entirePhrase[i].classList.remove('hide')
+                        entirePhrase[i].classList.add('show')
+                }
+            }
+                    newGame.checkForWin()
+                }
+            }
+        }
+    });
+
+    
+
+    
+});
+
 
 
 
