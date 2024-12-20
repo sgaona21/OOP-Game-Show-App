@@ -6,6 +6,7 @@
 const entireKeyboard = document.getElementById('qwerty')
 const overlayScreen = document.getElementById('overlay')
 const startGameButton = document.getElementById('btn__reset')
+const qwertyNodeList = entireKeyboard.querySelectorAll('button')
 
 let newGame
 let newPhrase
@@ -27,7 +28,6 @@ entireKeyboard.addEventListener('click', (event) => {
 
 document.addEventListener("keydown", (event) => {
     const pressedKey = event.key.toLowerCase();
-    const qwertyNodeList = entireKeyboard.querySelectorAll('button')
     // Allows for keyboard interaction control
     qwertyNodeList.forEach((button) => {
         if (!button.disabled == true) {
@@ -50,10 +50,19 @@ document.addEventListener("keydown", (event) => {
             }
         }
     });
+});
 
-    
+qwertyNodeList.forEach(button => {
+    // Adds blue border upon mouse hover to keys
+    button.addEventListener('mouseover', () => {
+        if (!button.disabled == true) {
+            button.style.borderColor = 'blue';
+        }
+    });
 
-    
+    button.addEventListener('mouseout', () => {
+        button.style.borderColor = 'transparent'
+    });
 });
 
 
