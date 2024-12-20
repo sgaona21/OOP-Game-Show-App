@@ -17,6 +17,14 @@ class Game {
         this.activePhrase = newPhrase.phrase
         console.log(this.activePhrase)
         newPhrase.addPhraseToDisplay()
+        if (overlayScreen.classList.contains('win')) {
+            overlayScreen.classList.remove('win')
+        } else if (overlayScreen.classList.contains('lose')) {
+            overlayScreen.classList.remove('lose')
+        }
+        if (!overlayScreen.classList.contains('start')) {
+            overlayScreen.classList.add('start')
+        }
     }
 
     getRandomPhrase() {
@@ -69,20 +77,58 @@ class Game {
             if (!currentPhrase[i].classList.contains('space')) {
                 if (currentPhrase[i].classList.contains('hide')) {
                     didPlayerwin = false
+                    
                 }
             }
         }
         if (didPlayerwin === true) {
             console.log("PLAYER WON")
             this.gameOver()
+            
+            
         }
     }
 
     gameOver() {
         overlayScreen.style.display = 'flex'
+        const endMessage = document.getElementById('game-over-message')
+        if (this.missed == 5) { 
+            endMessage.textContent = 'Sorry, you didnt win.'
+            overlayScreen.classList.remove('start')
+            overlayScreen.classList.add('lose')
+        } else {
+            endMessage.textContent = 'Congrats, you won. Not bad.'
+            overlayScreen.classList.remove('start')
+            overlayScreen.classList.add('win')
+        }
+
+        const currentPhrase = document.querySelectorAll('#phrase ul li')
+        currentPhrase.forEach(item => {
+            item.remove();
+        });
+
+        const qwertyButtons = document.querySelectorAll("#qwerty .key");
+        qwertyButtons.forEach(button => {
+            button.disabled = false;
+            if (button.classList.contains('chosen')) {
+                button.classList.remove('chosen')
+            } else if (button.classList.contains('wrong')) {
+                button.classList.remove('wrong')
+            }
+        });
+
+        const remainingHearts = document.querySelectorAll('#scoreboard ol li')
+        remainingHearts.forEach(item => {
+            item.remove();
+        });
+        const heartsContainer = document.querySelector('#scoreboard ol')
+        heartsContainer.innerHTML = `<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
+					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
+					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
+					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
+					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>`
+                 
+        
+        
     }
-
 }
-
-
-
