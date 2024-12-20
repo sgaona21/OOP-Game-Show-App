@@ -11,9 +11,9 @@ class Game {
     }
 
     startGame() {
+        // Starts new game and generates new phrase
         overlayScreen.style.display = 'none'
         newPhrase = new Phrase(this.getRandomPhrase())
-        console.log(newPhrase)
         this.activePhrase = newPhrase.phrase
         console.log(this.activePhrase)
         newPhrase.addPhraseToDisplay()
@@ -28,6 +28,7 @@ class Game {
     }
 
     getRandomPhrase() {
+        // Selects random phrase from an array
         const randomPhrase = Math.floor(Math.random() * this.phrases.length)
         return this.phrases[randomPhrase]
     }
@@ -51,6 +52,7 @@ class Game {
     }
 
     removeLife() {
+        //Removes a heart from display upon a wrong guess 
         console.log("remove life was called")
         const hearts = document.querySelectorAll('#scoreboard ol li')
         hearts[0].remove()
@@ -71,6 +73,7 @@ class Game {
     }
 
     checkForWin() {
+        // Checks game state to see if player has won and outputs a boolean
         const currentPhrase = document.querySelectorAll('#phrase ul li')
         let didPlayerwin = true
         for (let i = 0; i < currentPhrase.length; i++)   {
@@ -84,12 +87,11 @@ class Game {
         if (didPlayerwin === true) {
             console.log("PLAYER WON")
             this.gameOver()
-            
-            
         }
     }
 
     gameOver() {
+        // Updates screen upon outcome of game and refreshes the hearts
         overlayScreen.style.display = 'flex'
         const endMessage = document.getElementById('game-over-message')
         if (this.missed == 5) { 
@@ -122,10 +124,10 @@ class Game {
             item.remove();
         });
         const heartsContainer = document.querySelector('#scoreboard ol')
-        heartsContainer.innerHTML = `<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
-					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
-					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
-					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>
-					<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li>`  
+        let newHeartString = ``
+        for (let i = 0; i < 5; i++) {
+            newHeartString += `<li class="tries"><img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></li> `
+        }
+        heartsContainer.innerHTML = newHeartString
     }
 }

@@ -10,11 +10,11 @@ const startGameButton = document.getElementById('btn__reset')
 let newGame
 let newPhrase
 
+
+// EVENT HANDLERS 
 startGameButton.addEventListener('click', () => {
     newGame = new Game()
     newGame.startGame()
-
-    
 })
 
 entireKeyboard.addEventListener('click', (event) => {
@@ -22,7 +22,6 @@ entireKeyboard.addEventListener('click', (event) => {
     if (guessIsCorrect == true) {
         newPhrase.showMatchedLetter()
     }
-
     newGame.handleInteraction()
 })
 
