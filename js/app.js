@@ -2,7 +2,6 @@
  * Project 4 - OOP Game App
  * app.js */
 
-
 // Node Variables
 const entireKeyboard = document.getElementById('qwerty')
 const overlayScreen = document.getElementById('overlay')
@@ -81,4 +80,3 @@ console.log(hellacoolnewphrase.phrase)
 const hellwcoolnewGAME = new Game()
 console.log(hellwcoolnewGAME.getRandomPhrase())
 
-console.log(heycool)

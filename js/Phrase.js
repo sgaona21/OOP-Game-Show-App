@@ -26,10 +26,7 @@ class Phrase {
                 ul.appendChild(letter)
             }
         }
-        const oldUL = document.querySelector("#phrase ul");
-        // const phraseElement = document.getElementById("phrase")
-        phraseElement.replaceChild(ul, oldUL)
-
+        phraseElement.replaceChild(ul, phraseElement.firstChild)
     }
 
     checkLetter() {
