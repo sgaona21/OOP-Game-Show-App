@@ -4,11 +4,11 @@
 
 
 // Node Variables
-// const entireKeyboard = document.getElementById('qwerty')
-// const overlayScreen = document.getElementById('overlay')
-// const startGameButton = document.getElementById('btn__reset')
-// const qwertyNodeList = entireKeyboard.querySelectorAll('button')
-// const phraseElement = document.getElementById("phrase")
+const entireKeyboard = document.getElementById('qwerty')
+const overlayScreen = document.getElementById('overlay')
+const startGameButton = document.getElementById('btn__reset')
+const qwertyNodeList = entireKeyboard.querySelectorAll('button')
+const phraseElement = document.getElementById("phrase")
 
 
 
@@ -80,3 +80,5 @@ console.log(hellacoolnewphrase.phrase)
 
 const hellwcoolnewGAME = new Game()
 console.log(hellwcoolnewGAME.getRandomPhrase())
+
+console.log(heycool)
