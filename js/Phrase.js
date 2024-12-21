@@ -10,7 +10,7 @@ class Phrase {
 
     addPhraseToDisplay() {
         //Dynamically generates an element for each letter in the given phrase 
-        const ul = document.createElement("ul");
+        let ul = document.createElement("ul");
         for (let i = 0; i < this.phrase.length; i++) {
             if (this.phrase[i] == ' ') {
                 let space = document.createElement("li")
@@ -27,7 +27,7 @@ class Phrase {
             }
         }
         const oldUL = document.querySelector("#phrase ul");
-        const phraseElement = document.getElementById("phrase")
+        // const phraseElement = document.getElementById("phrase")
         phraseElement.replaceChild(ul, oldUL)
 
     }

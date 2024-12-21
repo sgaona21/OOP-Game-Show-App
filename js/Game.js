@@ -2,16 +2,18 @@
  * Project 4 - OOP Game App
  * Game.js */
 
+
 class Game {
 
     constructor() {
         this.missed = 0
-        this.phrases = ['how are you', 'way to go', 'coding is fun']
+        this.phrases = [new Phrase('how are you'), new Phrase('way to go'), new Phrase('coding is fun'), new Phrase('walk dont run'), new Phrase('please stand by')]
         this.activePhrase = null
     }
 
     startGame() {
         // Starts new game and generates new phrase
+
         overlayScreen.style.display = 'none'
         newPhrase = new Phrase(this.getRandomPhrase())
         this.activePhrase = newPhrase.phrase
@@ -30,7 +32,7 @@ class Game {
     getRandomPhrase() {
         // Selects random phrase from an array
         const randomPhrase = Math.floor(Math.random() * this.phrases.length)
-        return this.phrases[randomPhrase]
+        return this.phrases[randomPhrase].phrase
     }
 
     handleInteraction() {
@@ -52,7 +54,6 @@ class Game {
 
     removeLife() {
         //Removes a heart from display upon a wrong guess 
-        console.log("remove life was called")
         const hearts = document.querySelectorAll('#scoreboard ol li')
         hearts[0].remove()
 
@@ -63,7 +64,6 @@ class Game {
         this.missed +=1
 
         if (this.missed == 5) {
-            console.log("ITS OVER DAWG")
             this.gameOver()
         }
 
@@ -84,7 +84,6 @@ class Game {
             }
         }
         if (didPlayerwin === true) {
-            console.log("PLAYER WON")
             this.gameOver()
         }
     }
@@ -130,3 +129,8 @@ class Game {
         heartsContainer.innerHTML = newHeartString
     }
 }
+
+
+
+
+

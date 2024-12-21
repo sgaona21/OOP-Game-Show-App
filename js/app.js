@@ -2,17 +2,24 @@
  * Project 4 - OOP Game App
  * app.js */
 
-//**********VARIABLES *************/
-const entireKeyboard = document.getElementById('qwerty')
-const overlayScreen = document.getElementById('overlay')
-const startGameButton = document.getElementById('btn__reset')
-const qwertyNodeList = entireKeyboard.querySelectorAll('button')
+
+// Node Variables
+// const entireKeyboard = document.getElementById('qwerty')
+// const overlayScreen = document.getElementById('overlay')
+// const startGameButton = document.getElementById('btn__reset')
+// const qwertyNodeList = entireKeyboard.querySelectorAll('button')
+// const phraseElement = document.getElementById("phrase")
+
+
+
+
+
 
 let newGame
 let newPhrase
 
 
-// EVENT HANDLERS 
+// Event Handlers
 startGameButton.addEventListener('click', () => {
     newGame = new Game()
     newGame.startGame()
@@ -68,3 +75,8 @@ qwertyNodeList.forEach(button => {
 
 
 
+const hellacoolnewphrase = new Phrase("HEY WHAT UP")
+console.log(hellacoolnewphrase.phrase)
+
+const hellwcoolnewGAME = new Game()
+console.log(hellwcoolnewGAME.getRandomPhrase())
